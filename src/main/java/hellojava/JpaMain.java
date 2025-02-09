@@ -16,18 +16,25 @@ public class JpaMain {
         tx.begin();
 
         try {
-            /* 입력
-            Member member = new Member();
-            member.setId(1);
-            member.setName("Josep");
-            */
+            /* 입력 */
+            //Member member = new Member();
+            //member.setId(2);
+            //member.setName("Josep2");
+
+            //em.persist(member);
 
             /* 수정
             * find => java의 collection처럼 객체를 저장해 주는 기능
             * */
             Member findMember =  em.find(Member.class, 1);
+            System.out.println(findMember.getName());
+            findMember.setName("HelloJPA22");
+            em.persist(findMember);
 
+            /* 삭제
+            em.remove(findMember);
             System.out.println(findMember);
+            */
 
             tx.commit();
         } catch (Exception e) {
